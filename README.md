@@ -10,10 +10,21 @@ The application relies on the following env variables:
 * INTERVAL a dummy variable defining the worker interval (Optional)
 * USERNAME and PASSWORD secret to authenticated the user. (Optional)
 
-Your objective if to package the application in a Docker container and prepare the deployment to AWS ECS using Cloud Development Kit. You're free to you any language that CDK supports that you feel most comfortable with.
+Your objective is to package the application in a Docker container and prepare the deployment to AWS ECS using Cloud Development Kit. You're free to use any language that CDK supports that you feel most comfortable with.
 
 The CDK code should be added to the application itself and create a task definition and ECS service for both web and the worker. The web service should scle based on the metric of your choice while worker should be a singleton and there should not be more than one wokrer running at any point in time.
 
 Bonus: Read the INTERVAL variable from the SSM param store and the USERNAME/PASSWORD from the secrets manager.
 
 Please submit your solution as a pull request to this repo.
+
+
+npm install -g aws-cdk
+
+pip install -r requirements.txt
+
+cdk bootstrap
+
+cdk synth
+
+cdk deploy
