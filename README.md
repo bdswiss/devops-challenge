@@ -17,3 +17,55 @@ The CDK code should be added to the application itself and create a task definit
 Bonus: Read the INTERVAL variable from the SSM param store and the USERNAME/PASSWORD from the secrets manager.
 
 Please submit your solution as a pull request to this repo.
+
+# Solution
+
+
+## AWS SSM
+aws ssm put-parameter  --type "String" --name "INTERVAL" --value "5000"    
+
+## AWS Secret Manager
+aws secretsmanager create-secret --name USERNAME --secret-string "user"
+
+aws secretsmanager create-secret --name PASSWORD --secret-string "pass"
+
+
+## Deploy
+
+```
+$ cdk deploy
+```
+
+
+To manually create a virtualenv on MacOS and Linux:
+
+```
+$ python3 -m venv .venv
+```
+
+After the init process completes and the virtualenv is created, you can use the following
+step to activate your virtualenv.
+
+```
+$ source .venv/bin/activate
+```
+Install the required dependencies.
+
+```
+$ pip install -r requirements.txt
+```
+
+At this point you can now synthesize the CloudFormation template for this code.
+
+```
+$ cdk synth
+```
+
+## Useful commands
+
+ * `cdk ls`          list all stacks in the app
+ * `cdk synth`       emits the synthesized CloudFormation template
+ * `cdk deploy`      deploy this stack to your default AWS account/region
+ * `cdk diff`        compare deployed stack with current state
+ * `cdk docs`        open CDK documentation
+
